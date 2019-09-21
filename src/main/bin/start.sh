@@ -14,5 +14,5 @@ all_dependencys=$conf":"$jars
 echo "所有的依赖："$all_dependencys
 
 
-java -cp $all_dependencys com.dong.TT
+java -cp $all_dependencys com.dong.Slf4jCase
 
