@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %p [%t] %c{1}:%L - %m%n"/>
+        </Console>
+
+        <RollingFile name="FILE" fileName="./logs/my.log" filePattern="./logs/my.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %p [%t] %c{1}:%L - %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+<!--        <RollingFile name="MODULE" fileName="./logs/m.log" filePattern="./logs/m.log.%d{yyyy-MM-dd}">-->
+<!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %p [%t] %c{1}:%L - %m%n"/>-->
+<!--            <Policies>-->
+<!--                <TimeBasedTriggeringPolicy />-->
+<!--            </Policies>-->
+<!--        </RollingFile>-->
+
+
+
+    </Appenders>
+    <Loggers>
+
+
+        <!-- 全局默认设置error级别 -->
+        <Root level="INFO">
+            <!--            <AppenderRef ref="Console"/>-->
+<!--            <AppenderRef ref="FILE"/>-->
+            <AppenderRef ref="FILE"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+
+
+<!--          additivity=fasle时，不会传播事件，也就是不会重复打印这条日志 -->
+<!--        <Logger name="tx.as" level="info" additivity="false" />-->
+<!--        <Logger name="tz.ne" level="info" additivity="false"   >-->
+<!--            <AppenderRef ref="MODULE"/>-->
+<!--        </Logger>-->
+
+
+
+
+    </Loggers>
+</Configuration>

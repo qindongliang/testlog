@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.test.log</groupId>
+    <artifactId>test-log</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <dependencies>
+
+        <!--   log4j2的核心依赖包一  -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.3</version>
+        </dependency>
+
+
+
+
+        <!--  log4j2核心依赖包二  -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.3</version>
+        </dependency>
+
+        <!--      支持将log4j 1.x的版本到功能 ，平滑过渡到log4j 2.x   -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>2.3</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <!--        <dependency>-->
+        <!--            <groupId>log4j</groupId>-->
+        <!--            <artifactId>log4j</artifactId>-->
+        <!--            <version>1.2.17</version>-->
+        <!--        </dependency>-->
+
+
+        <!--  下面这个依赖还包括slf4j-api，通过这个依赖可以使得
+       我们使用slf4j这个统一接口，把数据路由到log4j2这个实现里面
+       切记不能和log4j-to-slf4j-2.0.jar共用，这样会导致相互依赖和无休止到互相转发
+        -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.3</version>
+        </dependency>
+
+        <!--   下面这个包是为了适配log4j 1.2的的binding包使用的-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+
+        <!--       使用slf4j接口 桥接 Jakarta Commons Logging的 （jcl） 日志  到 log4j中-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>jcl-over-slf4j</artifactId>-->
+        <!--            <version>1.7.7</version>-->
+        <!--        </dependency>-->
+
+
+
+        <!--        使用slf4j接口 桥接 java.util.logging (jul) 到 log4j中-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>jul-to-slf4j</artifactId>-->
+        <!--            <version>1.7.7</version>-->
+        <!--        </dependency>-->
+
+
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!--运行jar包时运行的主类，要求类全名-->
+                            <mainClass>com.hafiz.Runner</mainClass>
+                            <!-- 是否指定项目classpath下的依赖 -->
+                            <addClasspath>true</addClasspath>
+                            <!-- 指定依赖的时候声明前缀 -->
+                            <classpathPrefix>./</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution><!-- 配置执行器 -->
+                        <id>make-assembly</id>
+                        <phase>package</phase><!-- 绑定到package生命周期阶段上 -->
+                        <goals>
+                            <goal>single</goal><!-- 只运行一次 -->
+                        </goals>
+                        <configuration>
+                            <finalName>${project.name}</finalName>
+                            <descriptor>assembly.xml</descriptor><!--配置描述文件路径-->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
