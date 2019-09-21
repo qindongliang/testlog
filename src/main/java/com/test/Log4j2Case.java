@@ -7,8 +7,8 @@ public class Log4j2Case {
 static final Logger log = LogManager.getLogger(Log4j2Case.class);
 
     public static void main(String[] args) {
-        System.out.println(123);
-        log.info("123");
-        System.out.println(123);
+        log.info("info");
+        log.warn("warn");
+        log.error("error");
     }
 }
