@@ -44,10 +44,7 @@
         <!--        </dependency>-->
 
 
-        <!--  下面这个依赖还包括slf4j-api，通过这个依赖可以使得
-       我们使用slf4j这个统一接口，把数据路由到log4j2这个实现里面
-       切记不能和log4j-to-slf4j-2.0.jar共用，这样会导致相互依赖和无休止到互相转发
-        -->
+        <!-- 可以使用slf4j的api将log转发到log4j中  -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
@@ -89,12 +86,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <!--运行jar包时运行的主类，要求类全名-->
-                            <mainClass>com.hafiz.Runner</mainClass>
-                            <!-- 是否指定项目classpath下的依赖 -->
-                            <addClasspath>true</addClasspath>
-                            <!-- 指定依赖的时候声明前缀 -->
-                            <classpathPrefix>./</classpathPrefix>
+
                         </manifest>
                     </archive>
                 </configuration>
