@@ -15,7 +15,7 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.13.2</version>
+            <version>2.16.0</version>
         </dependency>
 
 
@@ -25,14 +25,14 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.13.2</version>
+            <version>2.16.0</version>
         </dependency>
 
         <!--      支持将log4j 1.x的版本到功能 ，平滑过渡到log4j 2.x   -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-1.2-api</artifactId>
-            <version>2.13.2</version>
+           <version>2.16.0</version>
         </dependency>
 
 
@@ -48,7 +48,7 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.13.2</version>
+           <version>2.16.0</version>
         </dependency>
 
         <!--   下面这个包是为了适配log4j 1.2的的binding包使用的-->
